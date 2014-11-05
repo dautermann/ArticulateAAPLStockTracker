@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		250497D61A0987DB000B99E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 250497D51A0987DB000B99E1 /* AppDelegate.m */; };
+		250497D81A0987DB000B99E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 250497D71A0987DB000B99E1 /* main.m */; };
+		250497DA1A0987DB000B99E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 250497D91A0987DB000B99E1 /* Images.xcassets */; };
+		250497DD1A0987DB000B99E1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250497DB1A0987DB000B99E1 /* MainMenu.xib */; };
+		250497E91A0987DB000B99E1 /* ArticulateStockTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 250497E81A0987DB000B99E1 /* ArticulateStockTrackerTests.m */; };
+		250497F71A098A8A000B99E1 /* CorePlot.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 250497F21A0988A8000B99E1 /* CorePlot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2506BA071A098B33005EC58E /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250497F21A0988A8000B99E1 /* CorePlot.framework */; };
+		2506BA0C1A098DFA005EC58E /* AAPLStockPlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2506BA0B1A098DFA005EC58E /* AAPLStockPlotItem.m */; };
+		2506BA0F1A098F00005EC58E /* PlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2506BA0E1A098F00005EC58E /* PlotItem.m */; };
+		250C25BD1A09950C00AC3A4D /* ArticulateStockTrackerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250C25BC1A09950C00AC3A4D /* ArticulateStockTrackerWindowController.m */; };
+		250C25C01A09DCE600AC3A4D /* PlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 250C25BF1A09DCE600AC3A4D /* PlotView.m */; };
+		250C25C21A09DDD600AC3A4D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250C25C11A09DDD600AC3A4D /* Quartz.framework */; };
+		250C25C41A09FD5D00AC3A4D /* stockprices.json in Resources */ = {isa = PBXBuildFile; fileRef = 250C25C31A09FD5D00AC3A4D /* stockprices.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		250497E31A0987DB000B99E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 250497C71A0987DB000B99E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 250497CE1A0987DB000B99E1;
+			remoteInfo = ArticulateStockTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		250497F51A09895E000B99E1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				250497F71A098A8A000B99E1 /* CorePlot.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		250497CF1A0987DB000B99E1 /* ArticulateStockTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArticulateStockTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		250497D31A0987DB000B99E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		250497D41A0987DB000B99E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		250497D51A0987DB000B99E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		250497D71A0987DB000B99E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		250497D91A0987DB000B99E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		250497DC1A0987DB000B99E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		250497E21A0987DB000B99E1 /* ArticulateStockTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArticulateStockTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		250497E71A0987DB000B99E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		250497E81A0987DB000B99E1 /* ArticulateStockTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticulateStockTrackerTests.m; sourceTree = "<group>"; };
+		250497F21A0988A8000B99E1 /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = ArticulateStockTracker/CorePlot.framework; sourceTree = "<group>"; };
+		2506BA081A098B8E005EC58E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2506BA0A1A098DFA005EC58E /* AAPLStockPlotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLStockPlotItem.h; sourceTree = "<group>"; };
+		2506BA0B1A098DFA005EC58E /* AAPLStockPlotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLStockPlotItem.m; sourceTree = "<group>"; };
+		2506BA0D1A098F00005EC58E /* PlotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotItem.h; sourceTree = "<group>"; };
+		2506BA0E1A098F00005EC58E /* PlotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotItem.m; sourceTree = "<group>"; };
+		250C25BB1A09950C00AC3A4D /* ArticulateStockTrackerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticulateStockTrackerWindowController.h; sourceTree = "<group>"; };
+		250C25BC1A09950C00AC3A4D /* ArticulateStockTrackerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticulateStockTrackerWindowController.m; sourceTree = "<group>"; };
+		250C25BE1A09DCE600AC3A4D /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
+		250C25BF1A09DCE600AC3A4D /* PlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotView.m; sourceTree = "<group>"; };
+		250C25C11A09DDD600AC3A4D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		250C25C31A09FD5D00AC3A4D /* stockprices.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = stockprices.json; path = ../../../Downloads/stockprices.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		250497CC1A0987DB000B99E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				250C25C21A09DDD600AC3A4D /* Quartz.framework in Frameworks */,
+				2506BA071A098B33005EC58E /* CorePlot.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		250497DF1A0987DB000B99E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		250497C61A0987DB000B99E1 = {
+			isa = PBXGroup;
+			children = (
+				250497D11A0987DB000B99E1 /* ArticulateStockTracker */,
+				250497E51A0987DB000B99E1 /* ArticulateStockTrackerTests */,
+				250497F41A0988B9000B99E1 /* Frameworks */,
+				250497D01A0987DB000B99E1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		250497D01A0987DB000B99E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				250497CF1A0987DB000B99E1 /* ArticulateStockTracker.app */,
+				250497E21A0987DB000B99E1 /* ArticulateStockTrackerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		250497D11A0987DB000B99E1 /* ArticulateStockTracker */ = {
+			isa = PBXGroup;
+			children = (
+				250497D41A0987DB000B99E1 /* AppDelegate.h */,
+				250497D51A0987DB000B99E1 /* AppDelegate.m */,
+				2506BA0A1A098DFA005EC58E /* AAPLStockPlotItem.h */,
+				2506BA0B1A098DFA005EC58E /* AAPLStockPlotItem.m */,
+				250C25BB1A09950C00AC3A4D /* ArticulateStockTrackerWindowController.h */,
+				250C25BC1A09950C00AC3A4D /* ArticulateStockTrackerWindowController.m */,
+				2506BA0D1A098F00005EC58E /* PlotItem.h */,
+				2506BA0E1A098F00005EC58E /* PlotItem.m */,
+				250C25BE1A09DCE600AC3A4D /* PlotView.h */,
+				250C25BF1A09DCE600AC3A4D /* PlotView.m */,
+				250497D91A0987DB000B99E1 /* Images.xcassets */,
+				250497DB1A0987DB000B99E1 /* MainMenu.xib */,
+				250497D21A0987DB000B99E1 /* Supporting Files */,
+			);
+			path = ArticulateStockTracker;
+			sourceTree = "<group>";
+		};
+		250497D21A0987DB000B99E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				250C25C31A09FD5D00AC3A4D /* stockprices.json */,
+				250497D31A0987DB000B99E1 /* Info.plist */,
+				250497D71A0987DB000B99E1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		250497E51A0987DB000B99E1 /* ArticulateStockTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				250497E81A0987DB000B99E1 /* ArticulateStockTrackerTests.m */,
+				250497E61A0987DB000B99E1 /* Supporting Files */,
+			);
+			path = ArticulateStockTrackerTests;
+			sourceTree = "<group>";
+		};
+		250497E61A0987DB000B99E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				250497E71A0987DB000B99E1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		250497F41A0988B9000B99E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				250C25C11A09DDD600AC3A4D /* Quartz.framework */,
+				2506BA081A098B8E005EC58E /* QuartzCore.framework */,
+				250497F21A0988A8000B99E1 /* CorePlot.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		250497CE1A0987DB000B99E1 /* ArticulateStockTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 250497EC1A0987DB000B99E1 /* Build configuration list for PBXNativeTarget "ArticulateStockTracker" */;
+			buildPhases = (
+				250497F51A09895E000B99E1 /* CopyFiles */,
+				250497CB1A0987DB000B99E1 /* Sources */,
+				250497CC1A0987DB000B99E1 /* Frameworks */,
+				250497CD1A0987DB000B99E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArticulateStockTracker;
+			productName = ArticulateStockTracker;
+			productReference = 250497CF1A0987DB000B99E1 /* ArticulateStockTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		250497E11A0987DB000B99E1 /* ArticulateStockTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 250497EF1A0987DB000B99E1 /* Build configuration list for PBXNativeTarget "ArticulateStockTrackerTests" */;
+			buildPhases = (
+				250497DE1A0987DB000B99E1 /* Sources */,
+				250497DF1A0987DB000B99E1 /* Frameworks */,
+				250497E01A0987DB000B99E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				250497E41A0987DB000B99E1 /* PBXTargetDependency */,
+			);
+			name = ArticulateStockTrackerTests;
+			productName = ArticulateStockTrackerTests;
+			productReference = 250497E21A0987DB000B99E1 /* ArticulateStockTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		250497C71A0987DB000B99E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Michael Dautermann";
+				TargetAttributes = {
+					250497CE1A0987DB000B99E1 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					250497E11A0987DB000B99E1 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 250497CE1A0987DB000B99E1;
+					};
+				};
+			};
+			buildConfigurationList = 250497CA1A0987DB000B99E1 /* Build configuration list for PBXProject "ArticulateStockTracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 250497C61A0987DB000B99E1;
+			productRefGroup = 250497D01A0987DB000B99E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				250497CE1A0987DB000B99E1 /* ArticulateStockTracker */,
+				250497E11A0987DB000B99E1 /* ArticulateStockTrackerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		250497CD1A0987DB000B99E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				250497DA1A0987DB000B99E1 /* Images.xcassets in Resources */,
+				250C25C41A09FD5D00AC3A4D /* stockprices.json in Resources */,
+				250497DD1A0987DB000B99E1 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		250497E01A0987DB000B99E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		250497CB1A0987DB000B99E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				250C25BD1A09950C00AC3A4D /* ArticulateStockTrackerWindowController.m in Sources */,
+				250497D81A0987DB000B99E1 /* main.m in Sources */,
+				250497D61A0987DB000B99E1 /* AppDelegate.m in Sources */,
+				250C25C01A09DCE600AC3A4D /* PlotView.m in Sources */,
+				2506BA0C1A098DFA005EC58E /* AAPLStockPlotItem.m in Sources */,
+				2506BA0F1A098F00005EC58E /* PlotItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		250497DE1A0987DB000B99E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				250497E91A0987DB000B99E1 /* ArticulateStockTrackerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		250497E41A0987DB000B99E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 250497CE1A0987DB000B99E1 /* ArticulateStockTracker */;
+			targetProxy = 250497E31A0987DB000B99E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		250497DB1A0987DB000B99E1 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				250497DC1A0987DB000B99E1 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		250497EA1A0987DB000B99E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		250497EB1A0987DB000B99E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		250497ED1A0987DB000B99E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ArticulateStockTracker",
+				);
+				INFOPLIST_FILE = ArticulateStockTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		250497EE1A0987DB000B99E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ArticulateStockTracker",
+				);
+				INFOPLIST_FILE = ArticulateStockTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		250497F01A0987DB000B99E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ArticulateStockTrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArticulateStockTracker.app/Contents/MacOS/ArticulateStockTracker";
+			};
+			name = Debug;
+		};
+		250497F11A0987DB000B99E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ArticulateStockTrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArticulateStockTracker.app/Contents/MacOS/ArticulateStockTracker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		250497CA1A0987DB000B99E1 /* Build configuration list for PBXProject "ArticulateStockTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				250497EA1A0987DB000B99E1 /* Debug */,
+				250497EB1A0987DB000B99E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		250497EC1A0987DB000B99E1 /* Build configuration list for PBXNativeTarget "ArticulateStockTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				250497ED1A0987DB000B99E1 /* Debug */,
+				250497EE1A0987DB000B99E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		250497EF1A0987DB000B99E1 /* Build configuration list for PBXNativeTarget "ArticulateStockTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				250497F01A0987DB000B99E1 /* Debug */,
+				250497F11A0987DB000B99E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 250497C71A0987DB000B99E1 /* Project object */;
+}
