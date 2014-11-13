@@ -16,6 +16,8 @@ static NSTimeInterval kOneDay = 24 * 60 * 60;
 
 @interface AAPLStockPlotItem ()
 
+@property (nonatomic, readwrite, strong) CPTPlotSpaceAnnotation *symbolTextAnnotation;
+
 @property (strong) NSArray *stockDataArray;
 @property (nonatomic, readwrite, strong) NSMutableArray *plotData;
 @property (nonatomic, readwrite, assign) NSUInteger currentIndex;
@@ -25,6 +27,7 @@ static NSTimeInterval kOneDay = 24 * 60 * 60;
 
 @implementation AAPLStockPlotItem
 
+@synthesize symbolTextAnnotation;
 @synthesize plotData;
 @synthesize currentIndex;
 @synthesize dataTimer;
@@ -44,7 +47,18 @@ static NSTimeInterval kOneDay = 24 * 60 * 60;
 {
     [self.dataTimer invalidate];
     self.dataTimer = nil;
+    
+    if([self.graphs count])
+    {
+        CPTGraph *graph = (self.graphs)[0];
 
+        CPTPlotSpaceAnnotation *annotation = self.symbolTextAnnotation;
+        if ( annotation ) {
+            [graph.plotAreaFrame.plotArea removeAnnotation:annotation];
+            self.symbolTextAnnotation = nil;
+        }
+    }
+    
     [super killGraph];
 }
 
@@ -54,6 +68,7 @@ static NSTimeInterval kOneDay = 24 * 60 * 60;
 
     // we could load the data from some remote website (and this may be on deck for when I talk to you guys in real-time),
     // but for the purposes of this demo we'll just load the JSON data that you provided
+#if 1
     NSURL *applStockDataFile = [[NSBundle mainBundle] URLForResource:@"stockprices" withExtension:@"json"];
     NSError *error = nil;
     NSData *applStockData = [[NSData alloc] initWithContentsOfURL:applStockDataFile options:0 error:&error];
@@ -74,6 +89,33 @@ static NSTimeInterval kOneDay = 24 * 60 * 60;
     {
         NSLog(@"error loading data from URL %@ - %@", [applStockDataFile absoluteString], [error localizedDescription]);
     }
+#else
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    NSDate *fiftyDaysAgo = [[NSDate alloc] initWithTimeIntervalSinceNow:kOneDay * -20];
+    NSString *todayDateString = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *fiftyDaysAgoString = [dateFormatter stringFromDate:fiftyDaysAgo];
+    NSURL *applStockDataURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://query.yahooapis.com/v1/public/yql?q=select%%20*%%20from%%20yahoo.finance.historicaldata%%20where%%20symbol%%20%%3D%%20%%22AAPL%%22%%20and%%20startDate%%20%%3D%%20%%2220%@%%22%%20and%%20endDate%%20%%3D%%20%%2220%@%%22&diagnostics=true&format=json&env=store%%3A%%2F%%2Fdatatables.org%%2Falltableswithkeys",fiftyDaysAgoString,todayDateString]];
+    NSError *error = nil;
+    NSData *dataFromYahoo = [[NSData alloc] initWithContentsOfURL:applStockDataURL options:NSUncachedRead error:&error];
+    if(dataFromYahoo)
+    {
+        NSDictionary *historyDict = [NSJSONSerialization JSONObjectWithData:dataFromYahoo options:0 error:&error];
+        if(historyDict)
+        {
+            NSLog(@"historyDict is %@", historyDict);
+            
+        }
+        else
+        {
+            NSLog(@"error parsing JSON from URL %@ - %@", [applStockDataURL absoluteString], [error localizedDescription]);
+        }
+    }
+    else
+    {
+        NSLog(@"error loading data from URL %@ - %@", [applStockDataURL absoluteString], [error localizedDescription]);
+    }
+#endif
 }
 
 - (unsigned int)getLowestPriceBoundary
@@ -138,6 +180,9 @@ static NSTimeInterval kOneDay = 24 * 60 * 60;
     [self setTitleDefaultsForGraph:graph withBounds:bounds];
     [self setPaddingDefaultsForGraph:graph withBounds:bounds];
 
+    // Plot area delegate
+    graph.plotAreaFrame.plotArea.delegate = self;
+    
     graph.plotAreaFrame.paddingTop    = 75.0;
     graph.plotAreaFrame.paddingRight  = 75.0;
     graph.plotAreaFrame.paddingBottom = 105.0;
@@ -279,6 +324,23 @@ static NSTimeInterval kOneDay = 24 * 60 * 60;
     {
         self.dataTimer = nil;
     }
+    
+    // Add plot symbols
+    CPTGradient *symbolGradient = [CPTGradient gradientWithBeginningColor:[CPTColor colorWithComponentRed:0.75 green:0.75 blue:1.0 alpha:1.0]
+                                                              endingColor:[CPTColor blueColor]];
+    symbolGradient.gradientType = CPTGradientTypeRadial;
+    symbolGradient.startAnchor  = CPTPointMake(0.25, 0.75);
+    
+    CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
+    plotSymbol.fill               = [CPTFill fillWithGradient:symbolGradient];
+    plotSymbol.lineStyle          = nil;
+    plotSymbol.size               = CGSizeMake(12.0, 12.0);
+    dataSourceLinePlot.plotSymbol = plotSymbol;
+    
+    // Set plot delegate, to know when symbols have been touched
+    // We will display an annotation when a symbol is touched
+    dataSourceLinePlot.delegate                        = self;
+    dataSourceLinePlot.plotSymbolMarginForHitDetection = 5.0;
 }
 
 - (void)dealloc
@@ -358,5 +420,61 @@ static NSTimeInterval kOneDay = 24 * 60 * 60;
     }
     return num;
 }
+
+#pragma mark -
+#pragma mark CPTScatterPlot delegate methods
+
+-(void)scatterPlot:(CPTScatterPlot *)plot plotSymbolWasSelectedAtRecordIndex:(NSUInteger)index
+{
+    CPTXYGraph *graph = (self.graphs)[0];
+    
+    CPTPlotSpaceAnnotation *annotation = self.symbolTextAnnotation;
+    
+    if ( annotation ) {
+        [graph.plotAreaFrame.plotArea removeAnnotation:annotation];
+        self.symbolTextAnnotation = nil;
+    }
+    
+    // Setup a style for the annotation
+    CPTMutableTextStyle *hitAnnotationTextStyle = [CPTMutableTextStyle textStyle];
+    hitAnnotationTextStyle.color    = [CPTColor whiteColor];
+    hitAnnotationTextStyle.fontSize = 16.0;
+    hitAnnotationTextStyle.fontName = @"Helvetica-Bold";
+    
+    // Determine point of symbol in plot coordinates
+    NSNumber *dataPoint = self.plotData[index];
+    
+    //NSNumber *x = dataPoint[@"x"];
+    //NSNumber *y = dataPoint[@"y"];
+    NSNumber *x = @(index * kOneDay);
+    NSNumber *y = @(90); // [NSNumber numberWithDouble:(index * kOneDay)];
+    
+    NSArray *anchorPoint = @[x, y];
+    
+    // Add annotation
+    // First make a string for the y value
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setMaximumFractionDigits:2];
+    NSString *yString = [NSString stringWithFormat:@"closing price: $%4.2f", [dataPoint doubleValue]];
+    //[formatter stringFromNumber:y];
+    
+    // Now add the annotation to the plot area
+    CPTTextLayer *textLayer = [[CPTTextLayer alloc] initWithText:yString style:hitAnnotationTextStyle];
+    CPTImage *background    = [CPTImage imageNamed:@"BlueBackground"];
+    background.edgeInsets   = CPTEdgeInsetsMake(8.0, 8.0, 8.0, 8.0);
+    textLayer.fill          = [CPTFill fillWithImage:background];
+    textLayer.paddingLeft   = 2.0;
+    textLayer.paddingTop    = 2.0;
+    textLayer.paddingRight  = 2.0;
+    textLayer.paddingBottom = 2.0;
+    
+    annotation                    = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:graph.defaultPlotSpace anchorPlotPoint:anchorPoint];
+    annotation.contentLayer       = textLayer;
+    annotation.contentAnchorPoint = CGPointMake(0.5, 0.0);
+    annotation.displacement       = CGPointMake(0.0, 10.0);
+    [graph.plotAreaFrame.plotArea addAnnotation:annotation];
+}
+
+
 
 @end

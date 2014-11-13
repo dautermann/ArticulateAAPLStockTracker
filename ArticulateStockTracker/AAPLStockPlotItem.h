@@ -8,6 +8,6 @@
 
 #import "PlotItem.h"
 
-@interface AAPLStockPlotItem : PlotItem <CPTPlotDataSource>
+@interface AAPLStockPlotItem : PlotItem <CPTPlotDataSource, CPTScatterPlotDelegate>
 
 @end

@@ -68,6 +68,7 @@
 		250C25BF1A09DCE600AC3A4D /* PlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotView.m; sourceTree = "<group>"; };
 		250C25C11A09DDD600AC3A4D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		250C25C31A09FD5D00AC3A4D /* stockprices.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = stockprices.json; path = ../../../Downloads/stockprices.json; sourceTree = "<group>"; };
+		251A00D01A0D6858004F92EA /* ArticulateStockTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ArticulateStockTracker.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +113,7 @@
 		250497D11A0987DB000B99E1 /* ArticulateStockTracker */ = {
 			isa = PBXGroup;
 			children = (
+				251A00D01A0D6858004F92EA /* ArticulateStockTracker.entitlements */,
 				250497D41A0987DB000B99E1 /* AppDelegate.h */,
 				250497D51A0987DB000B99E1 /* AppDelegate.m */,
 				2506BA0A1A098DFA005EC58E /* AAPLStockPlotItem.h */,
@@ -216,6 +218,12 @@
 				TargetAttributes = {
 					250497CE1A0987DB000B99E1 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = NJ7V5DU8KW;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					250497E11A0987DB000B99E1 = {
 						CreatedOnToolsVersion = 6.1;
@@ -386,6 +394,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ArticulateStockTracker/ArticulateStockTracker.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -394,6 +404,7 @@
 				);
 				INFOPLIST_FILE = ArticulateStockTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -402,6 +413,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ArticulateStockTracker/ArticulateStockTracker.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -410,6 +423,7 @@
 				);
 				INFOPLIST_FILE = ArticulateStockTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
