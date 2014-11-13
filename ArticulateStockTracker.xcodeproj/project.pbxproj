@@ -67,7 +67,7 @@
 		250C25BE1A09DCE600AC3A4D /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
 		250C25BF1A09DCE600AC3A4D /* PlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotView.m; sourceTree = "<group>"; };
 		250C25C11A09DDD600AC3A4D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
-		250C25C31A09FD5D00AC3A4D /* stockprices.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = stockprices.json; path = ../../../Downloads/stockprices.json; sourceTree = "<group>"; };
+		250C25C31A09FD5D00AC3A4D /* stockprices.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stockprices.json; sourceTree = "<group>"; };
 		251A00D01A0D6858004F92EA /* ArticulateStockTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ArticulateStockTracker.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
