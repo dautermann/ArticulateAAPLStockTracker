@@ -11,4 +11,4 @@ The bulk of the work can be found in AAPLStockPlotItem.
 
 The window controller is pretty simple and standard, while PlotItem & PlotView are stolen directly from the CorePlot sample app.
 
- 
+The full description of this project can be found [in this repo's wiki](https://github.com/dautermann/ArticulateAAPLStockTracker/wiki). 
